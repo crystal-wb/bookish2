@@ -1,2 +1,10 @@
 <p>Hello</p>
+<% if user_signed_in?%>
+<p>Welcome <%= current_user.email %></p>
+    <!--<a href='/users/sign_out'>Logout</a>-->
+    <%= link_to 'Logout','/users/sign_out', method: 'delete' %>
+    <a href='users/edit'>Edit Profile</a>
+<% else %>
+    <a href='/users/sign_in'>Login</a>
+<% end %>
 <%= link_to 'Play the test', page_path('sarah/hello')%>
