@@ -1,0 +1,2 @@
+class IntegerToken < ApplicationRecord
+end

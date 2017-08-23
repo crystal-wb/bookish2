@@ -1,0 +1,27 @@
+book
+    t.string    :title
+    t.string    :description
+    t.date      :date
+    t.string    :author
+    t.string    :genre
+    t.string    :url
+    
+story_save
+    t.string    :name
+    t.integer   :user_id
+    t.integer   :book_id
+    
+story_save
+has_many :integer_tokens
+has_many :boolean_tokens
+
+user
+has_many :story_saves
+
+integer_token
+    t.string   :name
+    t.integer  :value
+    
+boolean_token
+    t.string   :name
+    t.boolean  :value :default=> 'false'
