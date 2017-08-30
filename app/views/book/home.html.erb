@@ -1,0 +1,31 @@
+<p>Hello</p>
+<% if user_signed_in?%>
+<p>Welcome <%= current_user.email %></p>
+    <!--<a href='/users/sign_out'>Logout</a>-->
+    <%= link_to 'Logout','/users/sign_out', method: 'delete' %>
+    <a href='users/edit'>Edit Profile</a>
+    <table class='table'>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Genre</th>
+        <th>Date</th>
+        <th>Link</th>
+    </tr>
+    <% @library.each do |book|%>
+    <tr>
+        <td><%= book.title %>
+        <a href="/edit?id=<%=book.id%>">Edit</a></td>
+        <td><%=book.author%></td>
+        <td><%= book.description %></td>
+        <td><%=book.genre%></td>
+        <td><%= book.date %></td>
+        <td><%=link_to 'Read', page_path("#{book.url}")%></td>
+    </tr>
+    <% end %>
+</table>
+    <%= link_to 'Play the test', page_path('sarah/start')%>
+<% else %>
+    <a href='/users/sign_in'>Login</a>
+<% end %>

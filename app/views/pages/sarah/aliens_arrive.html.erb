@@ -1,3 +1,17 @@
 <p>We've made first contact with aliens. They wish to form a relationship with humans. Do you...</p>
-<%= link_to 'believe all aliens are bad?', page_path('sarah/new_neighbors')%>
-<%= link_to 'think they are a mix of good and bad, like humans?', page_path('sarah/new_neighbors')%>
+<p>believe all aliens are bad?</p>
+<form action='/new_integer_token' method="post">
+   <input type='hidden' name='name' value='war'>
+   <input type='hidden' name='value' value=5>
+   <input type='hidden' name='save_id'value='<%=StorySave.find_by(book_id: Book.find_by(title: 'Sarah').id, user_id: current_user.id)%>'>
+   <input type='hidden' name='url' value='<%=page_path('sarah/new_neighbors')%>'>
+   <input type='submit' value='yes'>
+ </form>
+ <p>think they are a mix of good and bad, like humans?</p>
+<form action='/new_integer_token' method="post">
+   <input type='hidden' name='name' value='no_war'>
+   <input type='hidden' name='value' value=0>
+   <input type='hidden' name='save_id'value='<%=StorySave.find_by(book_id: Book. find_by(title: 'Sarah').id, user_id: current_user.id)%>'>
+   <input type='hidden' name='url' value='<%=page_path('sarah/new_neighbors')%>'>
+   <input type='submit' value='yes'>
+ </form>

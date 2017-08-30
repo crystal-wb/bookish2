@@ -1,0 +1,22 @@
+
+<table class='table'>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Genre</th>
+        <th>Date</th>
+        <th>Link</th>
+    </tr>
+    <% @books.each do |book|%>
+    <tr>
+        <td><%= book.title %>
+        <a href="/edit?id=<%=book.id%>">Edit</a></td>
+        <td><%=book.author%></td>
+        <td><%= book.description %></td>
+        <td><%=book.genre%></td>
+        <td><%=book.date%></td>
+        <td><%= book.url %></td>
+    </tr>
+    <% end %>
+</table>

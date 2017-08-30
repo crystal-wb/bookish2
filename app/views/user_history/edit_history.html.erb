@@ -1,0 +1,9 @@
+<form action="/update_history" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value='<%=@story_save.id%>'>
+    <input class="form-control" type="text" name="name" placeholder="Name" value='<%=@story_save.name%>'>
+    <input class="form-control" type="text" name="book_id" placeholder="Book ID" value='<%=@story_save.book_id%>'>
+    <input class="form-control" type="text" name="user_id" placeholder="User ID" value='<%=@story_save.user_id%>'>
+    <input class="form-control" type="text" name="bookmark" placeholder="Bookmark" value='<%=@story_save.bookmark%>'>
+    <input type="hidden" name="url" value='<%='/user_page'%>'>
+    <input class="form-control" type="submit" value="Save">
+</form>

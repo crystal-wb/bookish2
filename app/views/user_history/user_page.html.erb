@@ -1,0 +1,22 @@
+<h1>Here are the saves of <%=current_user.email%></h1>
+ <table class='table'>
+    <tr>
+        <th>Save Name</th>
+        <th>Book</th>
+        <th>Link</th>
+        <th>Delete</th>
+    </tr>
+    <% @story_save.each do |story_save|%>
+    <tr>
+        <% if story_save.user_id==current_user.id%>
+        <td><%=story_save.name%>
+        <a href="/edit_history?id=<%=story_save.id%>">Edit</a></td>
+        <td><%=Book.find_by(id: "#{story_save.book_id}").to_s%></td>
+        <td><%=link_to 'Read', page_path("#{story_save.bookmark}")%></td>
+        <td><%=link_to 'Delete', "/delete_history?id=#{story_save.id}", method: :delete%></td>
+            
+        <% end %>
+    </tr>
+
+    <% end %>
+    </table>

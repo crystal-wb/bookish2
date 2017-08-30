@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823143557) do
+ActiveRecord::Schema.define(version: 20170830194506) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170823143557) do
 
   create_table "boolean_tokens", force: :cascade do |t|
     t.string "name"
+    t.integer "story_save_id"
     t.boolean "value", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170823143557) do
 
   create_table "integer_tokens", force: :cascade do |t|
     t.string "name"
+    t.integer "story_save_id"
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170823143557) do
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bookmark"
   end
 
   create_table "users", force: :cascade do |t|

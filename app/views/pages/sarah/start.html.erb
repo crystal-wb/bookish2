@@ -1,0 +1,8 @@
+<p>Before you play, let's create a save for your story path</p>
+<form action='/create_history' method="post">
+    <input class="form-control" type="text" name="name" placeholder="Name your save">
+    <input class="form-control" type="hidden" name="book_id"  value='<%=Book.find_by(title: 'Sarah').id%>'>
+    <input class="form-control" type="text" name="email" placeholder='Email address you used to login'>
+    <input type='hidden' name='url' value='<%=page_path('sarah/hello')%>'>
+    <input class="form control" type="submit" value="Save">
+</form>
