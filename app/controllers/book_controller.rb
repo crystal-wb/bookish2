@@ -14,9 +14,9 @@ class BookController < ApplicationController
       book.date=params['date']
       book.date=params['url']
       #book.image=params['image']
-      #book.picture=params['picture']
+      book.cover_photo=params['cover_photo']
       book.save
-      #redirect_to page_path('home')
+      redirect_to '/'
     end
       
     def search_form
@@ -40,7 +40,7 @@ class BookController < ApplicationController
         @book.date=params['date']
         @book.url=params['url']
         #@book.image=params['image']
-        #@book.picture=params['picture']
+        @book.cover_photo=params['cover_photo']
         
         @book.save
         redirect_to page_path('home')

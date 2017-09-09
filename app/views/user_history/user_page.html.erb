@@ -1,7 +1,10 @@
-<h1>Here are the saves of <%=current_user.email%></h1>
+<h1>Hi, <%=current_user.username%>!</h1>
+<p>Looking good as always</p>
+ <div><img height='200' src='<%=current_user.avatar%>'></div>
  <table class='table'>
     <tr>
         <th>Save Name</th>
+        <th>Cover Photo</th>
         <th>Book</th>
         <th>Link</th>
         <th>Delete</th>
@@ -11,8 +14,9 @@
         <% if story_save.user_id==current_user.id%>
         <td><%=story_save.name%>
         <a href="/edit_history?id=<%=story_save.id%>">Edit</a></td>
-        <td><%=Book.find_by(id: "#{story_save.book_id}").to_s%></td>
-        <td><%=link_to 'Read', page_path("#{story_save.bookmark}")%></td>
+        <td><img height='75'src= '<%= Book.find_by(id: "#{story_save.book_id}").cover_photo %>'></td>
+        <td><%=Book.find_by(id: "#{story_save.book_id}").title%></td>
+        <td><%=link_to 'Read', "/start?id=#{story_save.id}&user_id=#{current_user.id}&book_id=#{story_save.book_id}&bookmark=#{story_save.bookmark}"%></td>
         <td><%=link_to 'Delete', "/delete_history?id=#{story_save.id}", method: :delete%></td>
             
         <% end %>

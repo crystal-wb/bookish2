@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830194506) do
+ActiveRecord::Schema.define(version: 20170909152251) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20170830194506) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cover_photo_file_name"
+    t.string "cover_photo_content_type"
+    t.integer "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
   end
 
   create_table "boolean_tokens", force: :cascade do |t|
@@ -61,6 +65,13 @@ ActiveRecord::Schema.define(version: 20170830194506) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "about", default: "I am a riddle, wrapped in a mystery, inside an enigma."
+    t.string "hobbies", default: "I do stuff."
+    t.string "username", default: "Nameless"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

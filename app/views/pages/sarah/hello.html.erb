@@ -1,3 +1,4 @@
 <p>Hello, my name is Sarah. I'm a system test. Would you like to help me check the system?</p>
-<%= link_to 'Yes', page_path('sarah/aliens_arrive') %>
-<%= link_to 'No', page_path('home')%>
+<%= link_to 'Yes', page_path('sarah/aliens_arrive'), class: "btn btn-default" %>
+<%= link_to 'No', page_path('home'), class: "btn btn-default"%>
+<%= button_to 'Bookmark this page', "/update_bookmark?bookmark=#{request.original_fullpath}", method: :post %>

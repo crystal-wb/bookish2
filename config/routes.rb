@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   post '/update_history'=>"user_history#update"
   delete '/delete_history'=> "user_history#delete_history"
   get '/delete_history'=>"user_history#delete_history"
+  get '/start'=>"user_history#start"
+  post '/start'=>"user_history#start"
+  get '/start_book'=>"user_history#start_book"
+  post '/start_book'=>"user_history#start_book"
+  post '/update_bookmark'=>"user_history#update_bookmark"
+  get '/update_bookmark'=>"user_history#update_bookmark"
 end

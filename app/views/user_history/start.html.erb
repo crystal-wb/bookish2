@@ -1,0 +1,38 @@
+
+    <%if StorySave.find_by(id: params['id'])
+      history=StorySave.find(params['id'])
+      session[:history_id]=history.id
+      @book=Book.find(params['book_id'])
+      
+          if history.bookmark && history.bookmark.length>0
+          controller.redirect_to page_path(history.bookmark)
+        else
+          controller.redirect_to page_path(@book.url)
+          end
+      elsif StorySave.where(user_id: params['user_id'], book_id: params['book_id']).length>0
+      @story_save= StorySave.where(user_id: params['user_id'], book_id: params['book_id'])%>
+      <p>Choose which save to use</p>
+                <%=form_tag "/start_book" do%>
+                <select name='id'>
+                <%=options_from_collection_for_select(StorySave.where(user_id: params['user_id'], book_id: params['book_id']), :id, :name)%>
+                </select>
+                <input type="submit" value="Choose">
+                <%end%>
+        <p>Or create a new save</p>
+        <form action='/create_history' method="post">
+        <input class="form-control" type="text" name="name" placeholder="Name your save">
+        <input class="form-control" type="hidden" name="book_id"  value='<%=params['book_id']%>'>
+        <input class="form-control" type="text" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
+        <input type='hidden' name='url' value='<%=params['url']%>'>
+        <input class="form control" type="submit" value="Save">
+        </form>
+        <%else%>
+       <p>Before you play, let's create a save for your story path</p>
+        <form action='/create_history' method="post">
+        <input class="form-control" type="text" name="name" placeholder="Name your save">
+        <input class="form-control" type="hidden" name="book_id"  value='<%=params['book_id']%>'>
+        <input class="form-control" type="text" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
+        <input type='hidden' name='url' value='<%=params['url']%>'>
+        <input class="form control" type="submit" value="Save">
+        </form>
+        <%end%>

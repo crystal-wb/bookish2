@@ -1,4 +1,7 @@
 <p>"An alien family moved in on your street. Not long after that, few pet dogs go missing. You also often smell something burning over at the home of the aliens. Rumors spread that they are stealling and cooking the dogs. Late one night, while putting out your trash you hear a bark and see one of the aliens with a dog.</p>
 <p>Do you...</p>
-<%= link_to 'call the police?', page_path('sarah/police')%>
-<%= link_to 'ask the alien what is going on?', page_path('sarah/talk')%>
+<p>call the police?</p>
+<%= button_to 'Yes', "/change_integer?name=war&value=#{5}&next_page=sarah/police", method: :post %>
+<p>ask the alien what is going on?</p>
+<%= button_to 'Yes', "/change_integer?name=war&value=#{-5}&next_page=sarah/talk", method: :post %>
+<%= button_to 'Bookmark this page', "/update_bookmark?bookmark=#{request.original_fullpath}", method: :post %>
