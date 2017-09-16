@@ -1,0 +1,14 @@
+<form action="/user_profile" method="post" enctype="multipart/form-data">
+    <h3>I'd love to get to know you better</h3>
+    <p>What name would you like to be called?</p>
+    <input class="form-control" type="text" name="username" value="<%=current_user.username%>">
+    <p>Tell me a bit about yourself, or not. It's totally up to you.</p>
+    <textarea class="form-control" name="about"><%=current_user.about%></textarea>
+    <p>What are your hobbies? I'm super into k-dramas, video games (especially horror) and people making stuff (awesome food, houses, you name it)</p>
+    <textarea class="form-control" name="hobbies"><%=current_user.hobbies%></textarea>
+    <!--<input class="form-control" type="text" name='image' placeholder="Image URL">-->
+    <p>How would you like to be seen?</p>
+    <input class="form-control" type="file" name="avatar">
+    <input class="form control" type="submit" value="Save">
+</form>
+<a href="/user_page" class="btn btn-default">Cancel</a>

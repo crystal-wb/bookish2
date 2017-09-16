@@ -23,26 +23,33 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href='/'>Home</a></li>
-            <li><%=link_to 'Add New Book', page_path('new')%>></li>
-            <li><%=link_to 'Search', page_path('search_form')%></li>
-            <li><a href='/user_page'>User Page</a></li>
+          <% if user_signed_in? %>
+            <% if current_user.status=='admin' %>
+              <li><%=link_to 'Add New Book', '/new'%>></li>
+            <%end%>
+            <li><%=link_to 'Search', '/search_form'%></li>
+            <li><a href='/user_page'><%= current_user.username %>'s Profile Page</a></li>
+            <li><%=link_to 'Logout','/users/sign_out', method: :delete%></li>
+            <li><%=link_to 'Edit password or email', 'users/edit', method: :post%></li>
+            <li><a href='/user_profile'>Meet the family</a></li>
+        <%end%>
           </ul>
         </div><!--/.nav-collapse-->
       </div>
     </nav>
-<div class="container">
-  <% if flash[:success] %>
-    <div class="alert alert-success" role="alert">
-        <%= flash[:success] %>
-    </div>
-<% end %>
+      <div class="container">
+        <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+            <%= flash[:success] %>
+          </div>
+        <% end %>
 
-<% if flash[:error] %>
-    <div class="alert alert-danger" role="alert">
-        <%= flash[:error] %>
-    </div>
-<% end %>
-   <%= yield %>
+        <% if flash[:error] %>
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+        <%= yield %>
 </div>
   </body>
 </html>

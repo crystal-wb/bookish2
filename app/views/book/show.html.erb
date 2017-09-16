@@ -1,0 +1,13 @@
+<img height='300'src='<%=@book.cover_photo%>'>
+<div>
+    <h1><%=@book.title%></h1>
+    <h3><%=@book.author%></h3>
+    <p><%=@book.date%></p>
+    <p><%=@book.description%></p>
+    <h5><%=@book.genre%></h5>
+    <%=link_to 'Read', "/start?user_id=#{current_user.id}&book_id=#{@book.id}&url=#{@book.url}"%>
+        <% if current_user.email=="crystal.williams.brown@gmail.com"%>
+            <a href="/edit?id=<%=@book.id%>">Edit</a>
+            <%=link_to 'Delete', "/delete?id=#{@book.id}", method: :delete%>
+        <%end%>
+</div>

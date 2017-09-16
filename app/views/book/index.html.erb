@@ -1,9 +1,5 @@
-<p>Hello</p>
-<% if user_signed_in?%>
-<p>Welcome <%= current_user.email %></p>
-    <!--<a href='/users/sign_out'>Logout</a>-->
-    <%= link_to 'Logout','/users/sign_out', method: 'delete' %>
-    <a href='users/edit'>Edit Profile</a>
+<% if user_signed_in? %>
+<h1>Welcome to the library</h1>
     <table class='table'>
     <tr>
         <th>Cover Photo</th>
@@ -17,17 +13,20 @@
     <% @library.each do |book|%>
     <tr>
         <td><img height='100'src= '<%= book.cover_photo %>'></td>
-        <td><%= book.title %>
-        <a href="/edit?id=<%=book.id%>">Edit</a></td>
+        <td><%= book.title %></td>
         <td><%=book.author%></td>
         <td><%= book.description %></td>
         <td><%=book.genre%></td>
         <td><%= book.date %></td>
         <td><%=link_to 'Read', "/start?user_id=#{current_user.id}&book_id=#{book.id}&url=#{book.url}"%></td>
+        <% if current_user.status=="admin"%>
+        <td><a href="/edit?id=<%=book.id%>">Edit</a>
+        <%=link_to 'Delete', "/delete?id=#{book.id}", method: :delete%></td>
+        <%end%>
     </tr>
     <% end %>
 </table>
-    <%= link_to 'Play the test', page_path('sarah/start')%>
-<% else %>
-    <a href='/users/sign_in'>Login</a>
+<%else%>
+<h1>Welcome to Bookish</h1>
+<a href="/users/sign_in">Login</a>
 <% end %>

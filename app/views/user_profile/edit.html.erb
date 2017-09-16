@@ -1,0 +1,10 @@
+<form action="/user_profile" method="post" enctype="multipart/form-data">
+    <p>Cool, let's change things up</p>
+    <input class="form-control" type="text" name="username" value="<%=current_user.username%>">
+    <textarea class="form-control" name="about"><%=current_user.about%></textarea>
+    <textarea class="form-control" name="hobbies"><%=current_user.hobbies%></textarea>
+    <!--<input class="form-control" type="text" name='image' placeholder="Image URL">-->
+    <p>How would you like to be seen now?</p>
+    <input class="form-control" type="file" name="avatar">
+    <input class="form control" type="submit" value="Save">
+</form>

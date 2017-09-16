@@ -18,11 +18,12 @@
                 </select>
                 <input type="submit" value="Choose">
                 <%end%>
+                <div></div>
         <p>Or create a new save</p>
         <form action='/create_history' method="post">
         <input class="form-control" type="text" name="name" placeholder="Name your save">
         <input class="form-control" type="hidden" name="book_id"  value='<%=params['book_id']%>'>
-        <input class="form-control" type="text" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
+        <input class="form-control" type="hidden" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
         <input type='hidden' name='url' value='<%=params['url']%>'>
         <input class="form control" type="submit" value="Save">
         </form>
@@ -31,7 +32,7 @@
         <form action='/create_history' method="post">
         <input class="form-control" type="text" name="name" placeholder="Name your save">
         <input class="form-control" type="hidden" name="book_id"  value='<%=params['book_id']%>'>
-        <input class="form-control" type="text" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
+        <input class="form-control" type="hidden" name="user_id" placeholder='<%=current_user.id%>' value='<%=current_user.id%>'>
         <input type='hidden' name='url' value='<%=params['url']%>'>
         <input class="form control" type="submit" value="Save">
         </form>

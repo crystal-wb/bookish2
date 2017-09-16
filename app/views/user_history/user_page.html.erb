@@ -1,6 +1,11 @@
 <h1>Hi, <%=current_user.username%>!</h1>
 <p>Looking good as always</p>
  <div><img height='200' src='<%=current_user.avatar%>'></div>
+ <h2>about me</h2>
+ <div><p><%=current_user.about%></p>
+ <h2>hobbies</h2>
+ <p><%=current_user.hobbies%></p></div>
+ <%= link_to 'Update Profile', "/user_profile/new", class: "btn btn-default"%>
  <table class='table'>
     <tr>
         <th>Save Name</th>

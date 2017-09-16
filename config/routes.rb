@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #get 'pages/home' => 'high_voltage/pages#show', id: 'home'
-  root 'book#home'
-  get '/'=>'book#home'
-  post '/new'=> 'book#create_book'
+  root 'book#index'
+  get '/'=>'book#index'
+  get '/new'=> 'book#new'
+  get '/book/:id'=> 'book#show'
+  post '/new'=> 'book#create'
+  delete '/delete'=>'book#destroy'
   get '/search'=> 'book#search'
+  get '/search_form'=>'book#search_form'
   get '/edit'=>'book#edit'
   post '/update'=>"book#update"
   post '/create_history'=> 'user_history#create_history'
@@ -25,4 +29,6 @@ Rails.application.routes.draw do
   post '/start_book'=>"user_history#start_book"
   post '/update_bookmark'=>"user_history#update_bookmark"
   get '/update_bookmark'=>"user_history#update_bookmark"
+  resources :user_profile do
+    end
 end

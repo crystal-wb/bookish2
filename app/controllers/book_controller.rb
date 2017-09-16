@@ -1,10 +1,13 @@
 class BookController < ApplicationController
     
-    def home
+    def index
         @library=Book.all
     end
     
-    def create_book
+    def new
+    end
+    
+    def create
       book=Book.new
       
       book.title=params['title']
@@ -12,13 +15,16 @@ class BookController < ApplicationController
       book.description=params['description']
       book.genre=params['genre']
       book.date=params['date']
-      book.date=params['url']
+      book.url=params['url']
       #book.image=params['image']
       book.cover_photo=params['cover_photo']
       book.save
-      redirect_to '/'
+      redirect_to "/book/#{book.id}"
     end
-      
+    
+    def show
+        @book=Book.find(params['id'])
+    end
     def search_form
     end
       
@@ -43,6 +49,12 @@ class BookController < ApplicationController
         @book.cover_photo=params['cover_photo']
         
         @book.save
-        redirect_to page_path('home')
+        redirect_to "/book/#{@book.id}"
+    end
+    
+    def destroy
+        book=Book.find(params[:id])
+        book.destroy
+        redirect_to "/"
     end
 end

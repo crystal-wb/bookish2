@@ -1,0 +1,27 @@
+<%if IntegerToken.find_by(name: 'war', story_save_id: session[:history_id]).value==10%>
+<p>After some time a few humans get sick from a disease carried by some aliens. It's decided the aliens
+ in that town need to be quarantined. 
+ Fear of the aliens intensifies. When finding a cure proves difficult, people call for the aliens to be used as test subjects.
+ Others say all aliens should be quarantined for human safety. While the aliens say this is against their rights,
+ it comes to light that the aliens techinally don't have a classification and therefore have no rights.
+ The dog incident coupled with the sickness sparks your neighbors to start a movement against aliens being treated like humans, which leads eventually to war.</p>
+<p>Your choices have granted you access to the novel Otherkind, which is coming soon to the site.</p>
+<%elsif IntegerToken.find_by(name: 'war', story_save_id: session[:history_id]).value==5%>
+<p>After some time a few humans get sick from a disease carried by some aliens. It's decided the aliens
+ in that town need to be quarantined. 
+ Fear of the aliens intensifies. When finding a cure proves difficult, people call for the aliens to be used as test subjects.
+ Others say all aliens should be quarantined for human safety. While the aliens say this is against their rights,
+ it comes to light that the aliens techinally don't have a classification and therefore have no rights.
+ Your street is indifferent to the matter, allowing a group against alien rights shine. They use the dog incident as an example in their fight.
+ This leads to war.</p>
+ <p>Your choices have granted you access to the novel Otherkind, which is coming soon to the site.</p>
+<%elsif IntegerToken.find_by(name: 'war', story_save_id: session[:history_id]).value<5%>
+<p>After some time a few humans get sick from a disease carried by some aliens. It's decided the aliens
+ in that town need to be quarantined. 
+ Fear of the aliens intensifies. When finding a cure proves difficult, people call for the aliens to be used as test subjects.
+ Others say all aliens should be quarantined for human safety. While the aliens say this is against their rights,
+ it comes to light that the aliens techinally don't have a classification and therefore have no rights.
+ However your street starts an alien equality movement and helps prevent war from taking place.</p>
+<p>Your choices have granted you access to the novel The Kin, which is coming soon to the site.</p>
+<%end%>
+<%= button_to 'Bookmark this page', "/update_bookmark?bookmark=#{request.original_fullpath}", method: :post %>
