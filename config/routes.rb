@@ -3,15 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #get 'pages/home' => 'high_voltage/pages#show', id: 'home'
   root 'book#index'
-  get '/'=>'book#index'
-  get '/new'=> 'book#new'
-  get '/book/:id'=> 'book#show'
-  post '/new'=> 'book#create'
-  delete '/delete'=>'book#destroy'
-  get '/search'=> 'book#search'
-  get '/search_form'=>'book#search_form'
-  get '/edit'=>'book#edit'
-  post '/update'=>"book#update"
+  resources :book do
+      collection do
+          get :search_form
+          get :search
+      end
+  end
+
   post '/create_history'=> 'user_history#create_history'
   post '/new_integer_token'=> 'user_history#create_integer_token'
   post '/new_boolean_token'=> 'user_history#create_boolean_token'

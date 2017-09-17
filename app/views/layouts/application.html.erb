@@ -27,7 +27,7 @@
             <% if current_user.status=='admin' %>
               <li><%=link_to 'Add New Book', '/new'%>></li>
             <%end%>
-            <li><%=link_to 'Search', '/search_form'%></li>
+            <li><%=link_to 'Search', '/book/search_form'%></li>
             <li><a href='/user_page'><%= current_user.username %>'s Profile Page</a></li>
             <li><%=link_to 'Logout','/users/sign_out', method: :delete%></li>
             <li><%=link_to 'Edit password or email', 'users/edit', method: :post%></li>

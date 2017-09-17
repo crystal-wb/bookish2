@@ -19,7 +19,7 @@
         <td><%=book.date%></td>
         <td><%=link_to 'Read', "/start?user_id=#{current_user.id}&book_id=#{book.id}&url#{book.url}"%></td>
         <% if current_user.status=="admin"%>
-        <td><a href="/edit?id=<%=book.id%>">Edit</a>
+        <td><a href="/book/<%=book.id%>/edit">Edit</a>
         <%=link_to 'Delete', "/delete?id=#{book.id}", method: :delete%></td>
         <%end%>
     </tr>

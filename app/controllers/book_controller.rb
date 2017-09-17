@@ -47,7 +47,6 @@ class BookController < ApplicationController
         @book.url=params['url']
         #@book.image=params['image']
         @book.cover_photo=params['cover_photo']
-        
         @book.save
         redirect_to "/book/#{@book.id}"
     end

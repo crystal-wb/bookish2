@@ -1,4 +1,4 @@
-<form action="/update?id=<%=@book.id%>" method="post" enctype="multipart/form-data">
+<%= form_for @book do %>
     <!--<input type="hidden" name="id" value=''>-->
     <input class="form-control" type="text" name="title" placeholder="Title" value='<%=@book.title%>'>
     <textarea class="form-control" name="description" placeholder="Description"><%=@book.description%></textarea>
@@ -8,4 +8,4 @@
     <input class="form-control" type="text" name="url" placeholder="Url" value='<%=@book.url%>'>
     <input class="form-control" type="file" name="cover_photo" value='<%=@book.cover_photo%>'>
     <input class="form-control" type="submit" value="Save">
-</form>
+<% end %>
