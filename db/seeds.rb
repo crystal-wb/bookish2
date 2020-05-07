@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+date = Time.current.strftime('%Y-%m-%d')
+sarah = {
+          title: "Gettings Sarah",
+          description: "things get weird when aliens arrive",
+          date: date,
+          author: "Jacoby Brent",
+          genre: "Sci-Fi",
+          url: Rails.application.routes.url_helpers.page_path('sarah')
+        }
+zachary = {
+            title: "Zachary's Purpose",
+            description: "Work in progress",
+            date: date,
+            author: "Willow Hooper",
+            genre: "Sci-Fi",
+            url: Rails.application.routes.url_helpers.page_path('zachary')
+          }
+book1 = Book.find_or_create_by(sarah)
+book1.cover_photo = File.open('public/prototype temp files/Crab_Nebula_in_Taurus.jpg')
+book2 = Book.find_or_create_by(zachary)
+book2.cover_photo = File.open('public/prototype temp files/orange-brush-strokes-background.jpg')
