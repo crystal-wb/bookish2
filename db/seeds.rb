@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Book.destroy_all
 date = Time.current.strftime('%Y-%m-%d')
 sarah = {
           title: "Gettings Sarah",
