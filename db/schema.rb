@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915215800) do
+ActiveRecord::Schema.define(version: 2017_09_15_215800) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170915215800) do
     t.datetime "updated_at", null: false
     t.string "cover_photo_file_name"
     t.string "cover_photo_content_type"
-    t.integer "cover_photo_file_size"
+    t.bigint "cover_photo_file_size"
     t.datetime "cover_photo_updated_at"
   end
 
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170915215800) do
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "about", default: "I am a riddle, wrapped in a mystery, inside an enigma."
     t.string "hobbies", default: "I do stuff."
